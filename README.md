@@ -1,5 +1,7 @@
 # Roblox-Discord Staff Management Bot
 
+[github.com/l7rk/groupmanagement](https://github.com/l7rk/groupmanagement)
+
 A full staff-management system for Roblox roleplay groups — moderation, LOA, strikes,
 weekly requirements, and live Roblox rank sync, all through Discord slash commands.
 
@@ -13,8 +15,8 @@ weekly requirements, and live Roblox rank sync, all through Discord slash comman
 ## 1. Install
 
 ```bash
-git clone <this repo>
-cd roblox-discord-bot
+git clone https://github.com/l7rk/groupmanagement.git
+cd groupmanagement
 npm install
 cp .env.example .env
 ```
@@ -47,8 +49,9 @@ until it's configured, and everything else works normally.
 
 Playtime, chat activity, AFK detection, and purchase logging are all driven by your Roblox
 game server reporting to the bot's built-in HTTP endpoint, not by the bot polling Roblox.
-You'll need a small script in your Roblox game (running on the server) that does an
-`HttpService:PostAsync` call periodically for each player. Endpoints:
+Ready-made scripts for this are included in [`/roblox`](./roblox) — see
+[`roblox/README.md`](./roblox/README.md) for the Studio install steps. They call these
+endpoints:
 
 - `POST /report/heartbeat` — body: `{ guildId, robloxUserId, minutes, chatMessages }`
 - `POST /report/afk` — body: `{ guildId, robloxUserId, afk: true|false }`
